@@ -5,17 +5,33 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    private float inputHorizontal;
-    private float inputVertical;
-    private Transform playerSprite;
-    [SerializeField]private Transform verticalMove;
-    [SerializeField]private Transform horizontalMove;
+    private bool colW;
+    private bool colA;
+    private bool colS;
+    private bool colD;
+    
 
-    void Start()
+    private void Update()
     {
-        verticalMove.transform.position = gameObject.transform.GetChild(0).position;
-        horizontalMove.transform.position = gameObject.transform.GetChild(1).position;
-        Debug.Log(verticalMove.transform.position);
-        Debug.Log(horizontalMove.transform.position);
+    
+        
+        if (Input.GetKeyDown(KeyCode.W) && !colW)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y +2, transform.position.z);
+        }
+
+        if (Input.GetKeyDown(KeyCode.S) && !colS)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y -2, transform.position.z);
+        }
+        if (Input.GetKeyDown(KeyCode.A) && !colA)
+        {
+            transform.position = new Vector3(transform.position.x - 2 , transform.position.y, transform.position.z);
+        }
+        if (Input.GetKeyDown(KeyCode.D) && !colD)
+        {
+            transform.position = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
+        }
+        
     }
 }
