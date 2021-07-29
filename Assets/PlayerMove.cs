@@ -5,30 +5,25 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    private bool colW;
-    private bool colA;
-    private bool colS;
-    private bool colD;
     
 
     private void Update()
     {
-    
-        
-        if (Input.GetKeyDown(KeyCode.W) && !colW)
+
+        if (Input.GetKeyDown(KeyCode.W) && transform.position.y + 2 <= 3) 
         {
             transform.position = new Vector3(transform.position.x, transform.position.y +2, transform.position.z);
         }
 
-        if (Input.GetKeyDown(KeyCode.S) && !colS)
+        if (Input.GetKeyDown(KeyCode.S) && transform.position.y - 2 >= -3)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y -2, transform.position.z);
         }
-        if (Input.GetKeyDown(KeyCode.A) && !colA)
+        if (Input.GetKeyDown(KeyCode.A) && transform.position.x - 2 >= -3)
         {
             transform.position = new Vector3(transform.position.x - 2 , transform.position.y, transform.position.z);
         }
-        if (Input.GetKeyDown(KeyCode.D) && !colD)
+        if (Input.GetKeyDown(KeyCode.D) && transform.position.x + 2 <= 3)
         {
             transform.position = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
         }
